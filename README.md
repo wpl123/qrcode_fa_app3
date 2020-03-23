@@ -4,7 +4,7 @@ A new Flutter project.
 
 This App enables QRCode scanning in both Local and ServerConnect modes
 
-# Local Mode
+**Local Mode
 
 - Allows Scanning of a QRCode and the displaying of the QRCode and URL Preview on the screen
 - User has the option to launch the URL or scan another QRCode
@@ -13,7 +13,8 @@ This App enables QRCode scanning in both Local and ServerConnect modes
 - QRCodes can launch a webpage, send and email or SMS or make a phone call
 - Local settings enable webpages can be launched in the app itself or inside the default browser app 
 
-# Server Mode
+**Server Mode
+
 - Requires the user to seect Server Connect Mode and setup the username, password and server connection URL in the settings
 - Data can be collected after the QRCode is scanned. 1 x Decimal Fields, 2 x String Fields. The Field lables are setup in the Settings
 - This data is updated directly via SQL to a sqflite local database and the remote server via an API
