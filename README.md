@@ -4,7 +4,7 @@ A new Flutter project.
 
 This App enables QRCode scanning in both Local and ServerConnect modes
 
-*Local Mode
+*Local Mode*
 
 - Allows Scanning of a QRCode and the displaying of the QRCode and URL Preview on the screen
 - User has the option to launch the URL or scan another QRCode
