@@ -1,0 +1,24 @@
+import 'package:flutter/foundation.dart';
+
+enum AppVersion {
+  QAD_fa, // green theme colour, links to a weigh scale in the truck, one job shown at a time
+  AppStore // blue theme colour, does not link to weigh scale, gives list of jobs in one page
+}
+
+class GlobalSettings {
+  static AppVersion versionOfApp =
+      AppVersion.QAD_fa; // AppVersion.AppStore;
+
+  static String defaultUsername;
+  static String defaultPassword;
+
+  static setSomeStatics() {
+    if (kReleaseMode) {
+      defaultUsername = "";
+      defaultPassword = "";
+    } else {
+      defaultUsername = "wplaird@bigpond.com";
+      defaultPassword = "123456";
+    }
+  }
+}
