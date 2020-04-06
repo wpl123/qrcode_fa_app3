@@ -8,6 +8,7 @@ import '../../ui/views/about_view.dart';
 import '../../ui/views/database_view.dart';
 import '../../ui/views/database_connection_view.dart';
 import '../../ui/views/login_view.dart';
+import '../../ui/views/logout_view.dart';
 import '../../ui/views/side_drawer_view.dart';
 import '../../ui/views/share_view.dart';
 import '../../ui/views/qr_scanner_view.dart';
@@ -25,7 +26,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case HomeViewRoute:
       return MaterialPageRoute(builder: (context) => HomeView());
     case LoginViewRoute: 
-      return MaterialPageRoute(builder: (context) => LoginView());
+      return MaterialPageRoute(settings: RouteSettings(name: LoginViewRoute), builder: (context) => LoginView());
      case ScanViewRoute:
       return MaterialPageRoute(builder: (context) => ScanPage());
     case DisplayQRCodeViewRoute:
@@ -48,6 +49,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => AppInfoView());
     case ShareViewRoute:
       return MaterialPageRoute(builder: (context) => ShareView());
+    case LogoutViewRoute:
+      return MaterialPageRoute(builder: (context) => LogoutView());
     default:
       return MaterialPageRoute(
           builder: (context) => UndefinedView(
@@ -68,6 +71,20 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 // LaunchQRCodeView is located in qr_launcher
 
 
+class BlankView extends StatelessWidget {
+  
+  final String name;
+  const BlankView({Key key, this.name}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Route for $name is not defined'),
+      ),
+    );
+  }
+}
 class UndefinedView extends StatelessWidget {
   
   final String name;

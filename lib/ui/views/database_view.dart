@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../core/models/user_model.dart';
 import '../../core/services/database_helper.dart';
-import '../../core/services/HashHelper.dart';
+//import '../../core/services/HashHelper.dart';
 import '../../core/services/user.dart';
 import '../../ui/shared/logger.dart';
-import '../../ui/shared/device_helper.dart';
+//import '../../ui/shared/device_helper.dart';
 import '../../ui/shared/routing_constants.dart';
-import '../../ui/views/side_drawer_view.dart';
+//import '../../ui/views/side_drawer_view.dart';
 import '../../ui/shared/text_styles.dart';
 
 class UserSettingsView extends StatefulWidget {

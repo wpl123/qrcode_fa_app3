@@ -28,9 +28,10 @@ class AppUser {
   int daysLocalHistory;
   int daysServerHistory;
   
+ String dummyPassword = HashHelper.getHash("123456");
  AppUser.dummy() {
         email = "user@youremail.com";
-        password = (HashHelper.getHash('123456'));
+        password = dummyPassword;
         serverConnect = 1;   // 0 == True, 1 == False
         serverURL = "progressprogrammingsolutions.com.au/qrcode";
         keepLocalHistory = 1;

@@ -17,7 +17,8 @@ class _LoginViewState extends State<LoginView> {
   final log = getLogger('LoginView');
   DatabaseHelper databaseHelper = DatabaseHelper();
 //  final TextEditingController _controller = TextEditingController();
-
+  String usernameTypedIn;
+  String passwordTypedIn;
   
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -25,6 +26,10 @@ class _LoginViewState extends State<LoginView> {
 
   
  // final bool serverConnect = canConnect();
+@override
+  void initState() {
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -41,8 +46,11 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
 
 if (loggedInUserData.email == "user@youremail.com") {
-    usernameController.text = loggedInUserData.email;
-    passwordController.text = '123456';
+    setState(() {
+      usernameController.text = loggedInUserData.email;
+  //    passwordController.text = '123456';
+    });
+   
   }
 
     return Scaffold(
@@ -90,22 +98,24 @@ if (loggedInUserData.email == "user@youremail.com") {
           onPressed: () {
             getLogger("pushprofile: button pushed");
             setState(() {
-              pushProfile();
+              usernameTypedIn = usernameController.text;
+              passwordTypedIn = passwordController.text;
             });
+            getLogger("OnPressed: usernameTypedIn $usernameTypedIn passwordTypedIn $passwordTypedIn");
+            pushProfile();
+
           }),
     );
   }
 
   pushProfile() async {
 
-    String usernameTypedIn = usernameController.text;
-    String passwordTypedIn = passwordController.text;
-
-    if (usernameTypedIn == null || usernameTypedIn.length == 0) {
+        if (usernameTypedIn == null || usernameTypedIn.length == 0) {
       _showDialog("Missing username");
 
       return;
     }
+
     String outcome = await databaseHelper.canLogin(usernameTypedIn, passwordTypedIn);
 
     getLogger("pushprofile: after outcome returned $outcome");

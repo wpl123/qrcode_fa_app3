@@ -13,6 +13,7 @@ class LogoutView extends StatefulWidget {
 
     class _LogoutViewState extends State<LogoutView> {// TODO Sort out logout screen, dispose of all the resources
 
+  final log = getLogger('LogoutView');
   DatabaseHelper databaseHelper = DatabaseHelper();
 
   var backgroundBox = BoxDecoration(
@@ -26,41 +27,20 @@ class LogoutView extends StatefulWidget {
         title: Text('QR Code Logout'),
       ),
       backgroundColor: DeviceHelper.backgroundColour,
-      body: Center(
-        child: Column(),
-      ),
-      floatingActionButton: FloatingActionButton(
-          child: Text('Logout'),
-          onPressed: () {
-            logout();
-          }),
-    );
-  }
-
-  logout() {
-    _showDialog("Are you sure you want to logout?");
-  }
-
-  void _showDialog(String msg) {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
+      body: AlertDialog(
           title: new Text("Confirm"),
-          content: new Text(msg),
+          content: new Text("Are you sure you want to logout?"),
           actions: <Widget>[
-            // usually buttons at the bottom of the dialog
             Row(
               children: <Widget>[
                 FlatButton(
                   child: new Text("Yes"),
                   onPressed: () {
-                    databaseHelper.closeDB();
+//
                     Navigator.pop(context);
-                    Navigator.pushNamed(context, LoginViewRoute,
-                        arguments: 'Logged out');
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                                  '/login',
+                                  (Route<dynamic> route) => false);
                   },
                 ),
                 FlatButton(
@@ -72,8 +52,8 @@ class LogoutView extends StatefulWidget {
               ],
             )
           ],
-        );
-      },
+        )
+
     );
   }
 }

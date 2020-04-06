@@ -15,6 +15,7 @@ import '../../ui/shared/logger.dart';
 class DatabaseHelper {
   // Singleton Database Helper
   final log = getLogger('DatabaseHelper');
+  
   static DatabaseHelper _databaseHelper;
 
   DatabaseHelper._createInstance(); // Named constructer to create instance of DatabaseHelper
@@ -59,7 +60,10 @@ class DatabaseHelper {
         "daysServerHistory INTEGER"
         ")");
 
-    final newAppUser = AppUser.dummy();
+
+
+final newAppUser = AppUser.dummy();
+    
 //        //Add default user after database create
  getLogger("_createDB: before INSERT newAppUser, dummy Password = ${newAppUser.password}, ${DateTime.now()}");
 
@@ -71,6 +75,7 @@ class DatabaseHelper {
         '"${newAppUser.field1Label}", "${newAppUser.field2Label}", "${newAppUser.field3Label}", '
         '${newAppUser.daysLocalHistory}, ${newAppUser.daysServerHistory})');
 
+    
     loggedInUserData.email = newAppUser.email;
     loggedInUserData.password = newAppUser.password;
     loggedInUserData.serverConnect = newAppUser.serverConnect;
@@ -145,6 +150,7 @@ class DatabaseHelper {
 
   getAppUser(String forEmail) async {
     String lowerEmail = forEmail.toLowerCase();
+    getLogger("before Database db = ..");
     Database db = await this.database;
     var res =
         await db.query("AppUser", where: "email = ?", whereArgs: [lowerEmail]);
@@ -210,38 +216,38 @@ class DatabaseHelper {
 
   canLogin(String forEmail, String typedInPassword) async {
 
-    getLogger("canLogin, ${DateTime.now()}");
+//    getLogger("canLogin, ${DateTime.now()}");
     if (typedInPassword == null) {
       // || ((typedInPassword.length()) == 0) {
-      getLogger("canLogin: null password, ${DateTime.now()}");
+//      getLogger("canLogin: null password, ${DateTime.now()}");
       return "Missing password";
     }
-      getLogger("canLogin: Username, $forEmail, Password, $typedInPassword, ${DateTime.now()}");
+//      getLogger("canLogin: Username, $forEmail, Typed In Password, ${typedInPassword.trim()}, ${DateTime.now()}");
 
     
     var currentUser = await getAppUser(forEmail);
 
     if (currentUser == null) {
-      getLogger("canLogin: Unknown username, $forEmail  ${DateTime.now()}");
+//      getLogger("canLogin: Unknown username, $forEmail  ${DateTime.now()}");
       return "Unknown user email $forEmail.";
 
     } else {
       
-      getLogger("canLogin: retreived email, ${currentUser.email} retrieved password, ${currentUser.password}, ${DateTime.now()}");
+//      getLogger("canLogin: retreived email, ${currentUser.email} retrieved password, ${currentUser.password}, ${DateTime.now()}");
 
-      var hashedPassword = HashHelper.getHash(typedInPassword.trim());
-      getLogger("canLogin: hashed password, $hashedPassword ${DateTime.now()}");
+      var hashedPassword = HashHelper.getHash(typedInPassword);
+//      getLogger("canLogin: hashed password, $hashedPassword ${DateTime.now()}");
       
       var savedPassword = currentUser.password; // utf8.encode(currentUser.encryptedPassword);
 
       if (hashedPassword.length != savedPassword.length) {
-        // TODO: Setup New Usercode
-        getLogger("canLogin: Bad password (short), ${DateTime.now()}");
+        
+        getLogger("canLogin: Bad password (short), database password $savedPassword, typed in password ${typedInPassword.trim()}, hashed, $hashedPassword ${DateTime.now()}");
         return "Bad password (short)";
       }
 
       if (savedPassword.compareTo(hashedPassword) != 0) {
-        getLogger("canLogin: Bad password, database password $savedPassword, typed in password $typedInPassword hashed, $hashedPassword ${DateTime.now()}");
+        getLogger("canLogin: Bad password, database password $savedPassword, typed in password ${typedInPassword.trim()} hashed, $hashedPassword ${DateTime.now()}");
         return "Bad password";
       }
 
@@ -257,7 +263,8 @@ class DatabaseHelper {
       loggedInUserData.daysLocalHistory = currentUser.daysLocalHistory;
       loggedInUserData.daysServerHistory = currentUser.daysServerHistory;
 
-      getLogger("canLogin: email: ${loggedInUserData.email}");
+//      getLogger("canLogin: Success: email: ${loggedInUserData.email}");
+      getLogger("canLogin: Success: Database password $savedPassword, typed in password ${typedInPassword.trim()} hashed, $hashedPassword ${DateTime.now()}");
 
       return " ";
     }

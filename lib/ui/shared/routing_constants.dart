@@ -1,6 +1,6 @@
  const String HomeViewRoute = '/';
- const String LoginViewRoute = 'login';
- const String LogoutViewRoute = 'login';
+ const String LoginViewRoute = '/login';
+ const String LogoutViewRoute = 'logout';
  const String ScanViewRoute = 'scan';
  const String DisplayQRCodeViewRoute = 'display';
  const String LaunchQRCodeViewRoute = 'launch';
