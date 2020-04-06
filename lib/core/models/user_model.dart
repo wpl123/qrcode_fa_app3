@@ -100,7 +100,7 @@ String qrcodeHistoryToJson(QRCodeHistory data) {
 
 class QRCodeHistory{
 
-  Database database;  // ToDo:  ????
+  Database database;  // TODO:  ????
   int     id;
   String  scanDate;
   String  scanTime;
@@ -158,7 +158,7 @@ class QRCodeHistory{
 
 class QRCodeServerHistory{
 
-  Database database;  // ToDo:  ????
+  Database database;  // TODO:  ????
   String     id;
   String  scanDate;
   String     scanTime;

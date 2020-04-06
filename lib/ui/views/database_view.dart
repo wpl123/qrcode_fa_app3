@@ -38,7 +38,7 @@ class _UserSettingsViewState extends State<UserSettingsView> {
 
   @override
   void dispose() {
-    daysLocalHistoryController.dispose();  // ToDo : Dispose of all the controllers
+    daysLocalHistoryController.dispose();  // TODO : Dispose of all the controllers
     daysServerHistoryController.dispose();
     super.dispose();
   }
@@ -118,7 +118,7 @@ class _UserSettingsViewState extends State<UserSettingsView> {
                                 textInputAction: TextInputAction.done,
                                 onSubmitted: (newValue) {
                                   loggedInUserData.daysServerHistory = int.parse(
-                                      newValue); //ToDo: Delete excess History
+                                      newValue); //TODO: Delete excess History
                                 },
                               )
 //                        onPressed: () {
@@ -161,7 +161,7 @@ class _UserSettingsViewState extends State<UserSettingsView> {
                                 textInputAction: TextInputAction.done,
                                 onSubmitted: (newValue) {
                                   loggedInUserData.daysLocalHistory = int.parse(
-                                      newValue); //ToDo: Delete excess History
+                                      newValue); //TODO: Delete excess History
                                 },
                               )
                             : Container()),
@@ -234,7 +234,7 @@ class _UserSettingsViewState extends State<UserSettingsView> {
     final snackBar = SnackBar(
       content: Text(msg),
       duration: Duration(seconds: 5),
-    ); //ToDo Snack bar issues - doesn't appear
+    ); //TODO Snack bar issues - doesn't appear
     Scaffold.of(context).showSnackBar(snackBar);
     getLogger("inside _showSnackBar: after snackbar ${DateTime.now()}");
   }

@@ -26,17 +26,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HomeView());
     case LoginViewRoute: 
       return MaterialPageRoute(builder: (context) => LoginView());
- //if (databaseHelper.getServerConnect().then == true) {     // TODO: Sort out why Loginview doesn't load 
-//  databaseHelper.getServerConnect().then((value) {     
-//        if (value == false) {
-//        return MaterialPageRoute(builder: (context) => ScanPage());
-//        
-//      } else {
-//        return MaterialPageRoute(builder: (context) => LoginView());
-//      }
-//  });
-//      break;    
-    case ScanViewRoute:
+     case ScanViewRoute:
       return MaterialPageRoute(builder: (context) => ScanPage());
     case DisplayQRCodeViewRoute:
       var newScanData = settings.arguments as ScanData;

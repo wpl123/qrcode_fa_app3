@@ -240,13 +240,13 @@ Future<void> _deleteQRCodeServerHistory(BuildContext context, QRCodeServerHistor
       action: SnackBarAction(
       label: "Undo",
       textColor: Colors.yellow,
-      onPressed: () {   // ToDo: Complete Undo https://medium.com/flutter-community/an-in-depth-dive-into-implementing-swipe-to-dismiss-in-flutter-41b9007f1e0
+      onPressed: () {   // TODO: Complete Undo https://medium.com/flutter-community/an-in-depth-dive-into-implementing-swipe-to-dismiss-in-flutter-41b9007f1e0
   
 //        databaseHelper.newQRCodeHistory(copiedQRCodeHistory);
 
 //        updateServerQRCodeHistoryList();
  
-//                _animatedListKey.currentState.insertItem(_index); // ToDo: setup animation
+//                _animatedListKey.currentState.insertItem(_index); // TODO: setup animation
       }
   ),
     );
@@ -297,7 +297,7 @@ void  _shareServerQRCodeHistory(BuildContext context, QRCodeHistory shareQRCodeH
    _shareDialog(BuildContext context, QRCodeServerHistory shareQRCodeServerHistory) {
 
     final TextEditingController textController = TextEditingController()..text = ("Checkout this link ${shareQRCodeServerHistory.scanQRCode}");
-    String _subject = "Link from ${loggedInUserData.email}"; // ToDo: fix null email address
+    String _subject = "Link from ${loggedInUserData.email}"; // TODO: fix null email address
 
      @override
   void dispose() {
@@ -313,7 +313,7 @@ void  _shareServerQRCodeHistory(BuildContext context, QRCodeHistory shareQRCodeH
         return AlertDialog(
           title: new Text("Share"),
           content: Column(
-            children: <Widget>[  // ToDo: fix padding --> https://stackoverflow.com/questions/46841637/show-a-text-field-dialog-without-being-covered-by-keyboard
+            children: <Widget>[  // TODO: fix padding --> https://stackoverflow.com/questions/46841637/show-a-text-field-dialog-without-being-covered-by-keyboard
                TextField(
                  controller: textController,
                   decoration: const InputDecoration(
@@ -373,7 +373,7 @@ void  _shareServerQRCodeHistory(BuildContext context, QRCodeHistory shareQRCodeH
 Future<void> _showErrorSnackBar(context, String msg) async {
   getLogger(
         "inside _showErrorSnackBar: before snackbar ${DateTime.now()}");
-    final snackBar = SnackBar(content: Text(msg), duration: Duration(seconds: 5),);  //ToDo Snack bar issues - doesn't appear
+    final snackBar = SnackBar(content: Text(msg), duration: Duration(seconds: 5),);  //TODO Snack bar issues - doesn't appear
     Scaffold.of(context).showSnackBar(snackBar);
     getLogger(
         "inside _showSnackBar: after snackbar ${DateTime.now()}");

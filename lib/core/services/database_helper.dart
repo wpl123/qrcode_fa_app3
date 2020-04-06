@@ -235,7 +235,7 @@ class DatabaseHelper {
       var savedPassword = currentUser.password; // utf8.encode(currentUser.encryptedPassword);
 
       if (hashedPassword.length != savedPassword.length) {
-        // toDo: Setup New Usercode
+        // TODO: Setup New Usercode
         getLogger("canLogin: Bad password (short), ${DateTime.now()}");
         return "Bad password (short)";
       }

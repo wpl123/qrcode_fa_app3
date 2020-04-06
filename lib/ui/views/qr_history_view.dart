@@ -97,7 +97,7 @@ class _DisplayQRCodeHistoryViewState extends State<DisplayQRCodeHistoryView> {
                   ),
                   title: Text("Date: ${qrCodeHistoryList[_index].scanTime}, ${qrCodeHistoryList[_index].scanDate}", style: titleStyle),
                   subtitle: Text("${qrCodeHistoryList[_index].scanQRCode}", style: subtitleStyle),
-                  trailing: GestureDetector(        // ToDo: Change to share link
+                  trailing: GestureDetector(        // TODO: Change to share link
                     child: Icon(Icons.share, color: Colors.grey),
                     onTap: () {
                       getLogger("GestureDector OnTap: _index $_index qrCodeHistory.id ${qrCodeHistoryList[_index].id} ${DateTime.now()}");
@@ -128,13 +128,13 @@ class _DisplayQRCodeHistoryViewState extends State<DisplayQRCodeHistoryView> {
       action: SnackBarAction(
       label: "Undo",
       textColor: Colors.yellow,
-      onPressed: () {   // ToDo: Complete Undo https://medium.com/flutter-community/an-in-depth-dive-into-implementing-swipe-to-dismiss-in-flutter-41b9007f1e0
+      onPressed: () {   // TODO: Complete Undo https://medium.com/flutter-community/an-in-depth-dive-into-implementing-swipe-to-dismiss-in-flutter-41b9007f1e0
   
         databaseHelper.newQRCodeHistory(copiedQRCodeHistory);
 
         updateQRCodeHistoryList();
  
-//                _animatedListKey.currentState.insertItem(_index); // ToDo: setup animation
+//                _animatedListKey.currentState.insertItem(_index); // TODO: setup animation
       }
   ),
     );
@@ -238,7 +238,7 @@ void  _shareQRCodeHistory(BuildContext context, QRCodeHistory shareQRCodeHistory
    _shareDialog(BuildContext context, QRCodeHistory shareQRCodeHistory) {
 
     final TextEditingController textController = TextEditingController()..text = ("Checkout this link ${shareQRCodeHistory.scanQRCode}");
-    String _subject = "Link from ${loggedInUserData.email}"; // ToDo: fix null email address
+    String _subject = "Link from ${loggedInUserData.email}"; // TODO: fix null email address
 
      @override
   void dispose() {
@@ -254,7 +254,7 @@ void  _shareQRCodeHistory(BuildContext context, QRCodeHistory shareQRCodeHistory
         return AlertDialog(
           title: new Text("Share"),
           content: Column(
-            children: <Widget>[  // ToDo: fix padding --> https://stackoverflow.com/questions/46841637/show-a-text-field-dialog-without-being-covered-by-keyboard
+            children: <Widget>[  // TODO: fix padding --> https://stackoverflow.com/questions/46841637/show-a-text-field-dialog-without-being-covered-by-keyboard
                TextField(
                  controller: textController,
                   decoration: const InputDecoration(

@@ -31,7 +31,7 @@ class _DisplayQRCodeViewState extends State<DisplayQRCodeView> {
   var data;
 
   final log = getLogger(
-      'DisplayQRCodeView'); // ToDo: Check version for updating the remote DB on display and launch
+      'DisplayQRCodeView'); // TODO: Check version for updating the remote DB on display and launch
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _DisplayQRCodeViewState extends State<DisplayQRCodeView> {
       floatingActionButton: FloatingActionButton(
           child: loggedInUserData.serverConnect == 0 ? Text('Update') : Text('Launch'), 
           onPressed: () {
-            Navigator.pushNamed(context, LaunchQRCodeViewRoute,  // ToDo: Skip Launch for ServerConnect
+            Navigator.pushNamed(context, LaunchQRCodeViewRoute,  // TODO: Skip Launch for ServerConnect
                 arguments: widget.scanData); // Launch QRCode on screen
           }),
       appBar: AppBar(
@@ -176,8 +176,8 @@ class _DisplayQRCodeViewState extends State<DisplayQRCodeView> {
       return;
     }
 
-    if (data['title'] == "404 Not Found" || data['title'] == "Bad Request") {
-      return Text(widget.scanData.scanQRCode, style: subtitleStyle);
+    if (data['title'] == "404 Not Found" || data['title'] == "Bad Request") {  //TODO What about Telephones etc
+      return Text(widget.scanData.scanQRCode, style: subtitleStyle);           // TODO Create own card  for these  ones
     }
 
     return Padding(

@@ -59,7 +59,7 @@ factory DatabaseHelper() {
     var raw = await db.rawInsert(
         "INSERT Into AppUser (id,email,password)"
         " VALUES (?,?,?,?)",
-        [id, newAppUser.email, newAppUser.password, newAppUser.serverConnect]); //ToDo
+        [id, newAppUser.email, newAppUser.password, newAppUser.serverConnect]); //TODO
 //          [id, "wplaird@bigpond.com", "123456", 0]);
 
   return raw;
@@ -150,7 +150,7 @@ factory DatabaseHelper() {
         currentUser.password; // utf8.encode(currentDriver.encryptedPassword);
 
     if (hashedPassword.length !=
-        savedPassword.length) // toDo: Setup New Usercode
+        savedPassword.length) // TODO: Setup New Usercode
       return "Bad password (short)";
 //      var hashedPassword = HashHelper.getHash(typedInPassword);
 //      currentUser.password = hashedPassword;

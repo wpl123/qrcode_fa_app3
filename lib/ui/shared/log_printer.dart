@@ -17,7 +17,7 @@ class SimpleLogPrinter extends LogPrinter {
 
 
   @override
-  //void log(Level level, message, error, StackTrace stackTrace) { // ToDo
+  //void log(Level level, message, error, StackTrace stackTrace) { // TODO
     void log(LogEvent event) {
 
     var color = PrettyPrinter.levelColors[event.level];

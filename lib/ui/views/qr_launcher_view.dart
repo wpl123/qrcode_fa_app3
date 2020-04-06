@@ -70,7 +70,7 @@ class _LaunchQRCodeViewState extends State<LaunchQRCodeView> {
         }
           
 
-      await databaseHelper.updateQRCodeHistoryUsed(scanData.localRowid, 1);  //ToDo: Update DB with Stocktake data
+      await databaseHelper.updateQRCodeHistoryUsed(scanData.localRowid, 1);  //TODO: Update DB with Stocktake data
       await _updateQRCodeServerHistoryUsed(scanData.serverRowid, "1");
 
       Navigator.of(context).pop();  // pop up the widget tree
@@ -129,7 +129,7 @@ Future<void> _updateQRCodeServerHistoryUsed(int _serverRowid, String _scanUsed) 
             launch(scanData.scanQRCode); 
         }
         
-       Navigator.of(context).pop();
+//       Navigator.of(context).pop();
        status = 1;  // launch successful
     } else {
       _showDialog('Could not launch ${scanData.scanQRCode} on this device', context, scanData);
@@ -137,18 +137,18 @@ Future<void> _updateQRCodeServerHistoryUsed(int _serverRowid, String _scanUsed) 
     }
          // launch failed
 
-    await databaseHelper.updateQRCodeHistoryUsed(scanData.localRowid, status);  //ToDo: Update DB with Stocktake data
+    await databaseHelper.updateQRCodeHistoryUsed(scanData.localRowid, status);  //TODO: Update DB with Stocktake data
 //  await _updateQRCodeServerHistoryUsed(scanData.serverRowid, status);
 }
 @override
 Widget build(BuildContext context) {
 
-//  _launchURL(widget.scanData, context);
+  _launchURL(widget.scanData, context);
   // 1. launch URL if serverConnect == 1;
 
-  if (loggedInUserData.serverConnect == 1) {
-    _launchURLLocal(widget.scanData, context);
-  }
+//  2. if (loggedInUserData.serverConnect == 1) {
+//    _launchURLLocal(widget.scanData, context);
+//     }
 
   // 3. update the remote database if serverConnect == 0;
 
