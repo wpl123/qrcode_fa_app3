@@ -4,13 +4,13 @@ This is a Flutter App on Andriod. Enables QRCode scanning in both Local and Serv
 
 *Local Mode*
 
-- Allows Scanning of a QRCode and the displaying of the QRCode and URL Preview on the screen
+- Scan QRCode, store and display the QRCode locally.
+- Preview the URL on the device prior to launch
 - User has the option to launch the URL or scan another QRCode
-- Set Scan History in days 
 - Scan History can be re-launched or shared
 - QRCodes and scan status are updated directly to a sqflite local database
-- QRCodes can launch a webpage, send and email or SMS or make a phone call
-- Local settings enable webpages can be launched in the app itself or inside the default browser app 
+- QRCodes can launch a webpage, send email,SMS or make a phone call
+- Local settings configure Scan History in Days plus in-app or default browser URL launch 
 
 *ServerConnect Mode*
 
