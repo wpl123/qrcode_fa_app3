@@ -1,14 +1,13 @@
 # qrcode_fa_app3
 
-A new Flutter project.
-
-This App enables QRCode scanning in both Local and ServerConnect modes
+This is a Flutter App on Andriod. Enables QRCode scanning in both Local and ServerConnect modes. 
 
 *Local Mode*
 
 - Allows Scanning of a QRCode and the displaying of the QRCode and URL Preview on the screen
 - User has the option to launch the URL or scan another QRCode
-- Local Settings enable the retention of scan history for a set number of days and the ability to re-launch or share QRCodes from the history
+- Set Scan History in days 
+- Scan History can be re-launched or shared
 - QRCodes and scan status are updated directly to a sqflite local database
 - QRCodes can launch a webpage, send and email or SMS or make a phone call
 - Local settings enable webpages can be launched in the app itself or inside the default browser app 
@@ -22,3 +21,8 @@ This App enables QRCode scanning in both Local and ServerConnect modes
 - Additional data updates both the sqflite local database and the remote server via an API
 
 
+Server Connect Mode could be used for Inventory cycle counts, move stock from bin A to bin B, scan in to venue, asset mainetnenace schedule
+
+
+ToDo: Move API backend from Laravel to Flask
+      Enable free format data validation for additional data fields
