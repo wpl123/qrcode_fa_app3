@@ -13,10 +13,12 @@ This App enables QRCode scanning in both Local and ServerConnect modes
 - QRCodes can launch a webpage, send and email or SMS or make a phone call
 - Local settings enable webpages can be launched in the app itself or inside the default browser app 
 
-*Server Mode*
+*ServerConnect Mode*
 
-- Requires the user to seect Server Connect Mode and setup the username, password and server connection URL in the settings
-- Data can be collected after the QRCode is scanned. 1 x Decimal Fields, 2 x String Fields. The Field lables are setup in the Settings
-- This data is updated directly via SQL to a sqflite local database and the remote server via an API
+- Enter the username, password 
+- Enter server connection URL
+- Additional data can be collected after the QRCode is scanned. 1 x Decimal Fields, 2 x String Fields. 
+- Additional data field labels are configurable
+- Additional data updates both the sqflite local database and the remote server via an API
 
 
