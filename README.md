@@ -21,7 +21,7 @@ This is a Flutter App on Andriod. Enables QRCode scanning in both Local and Serv
 - Additional data updates both the sqflite local database and the remote server via an API
 
 
-Server Connect Mode could be used for Inventory cycle counts, move stock from bin A to bin B, scan in to venue, asset mainetnenace schedule
+Server Connect Mode could be used for Inventory cycle counts, move stock from bin A to bin B, scan in to venue, asset mainetnenace schedule etc
 
 
 ToDo: Move API backend from Laravel to Flask
